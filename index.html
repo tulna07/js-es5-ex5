@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-5 mx-auto my-3">
+          <div class="card">
+            <div class="card-header text-info">
+              <strong>📘 Question 1</strong>
+            </div>
+            <div class="card-body d-flex">
+              <div class="form-group form-group--left">
+                <!-- Điểm chuẩn hội đồng -->
+                <label for="benchmark"><strong>Benchmark</strong></label>
+                <input
+                  type="text"
+                  name=""
+                  id="benchmark"
+                  class="form-control"
+                />
+                <small id="noti-benchmark" class="text-muted"
+                  >Benchmark must greater than or equal to 0</small
+                ><br />
+                <!-- Điểm môn thứ 1 -->
+                <label for="score-1"><strong>Score of subject 1</strong></label>
+                <input type="text" name="" id="score-1" class="form-control" />
+                <small id="noti-score-1" class="text-muted"
+                  >Score must greater than or equal to 0</small
+                ><br />
+                <!-- Điểm môn thứ 2 -->
+                <label for="score-2"><strong>Score of subject 2</strong></label>
+                <input type="text" name="" id="score-2" class="form-control" />
+                <small id="noti-score-2" class="text-muted"
+                  >Score must greater than or equal to 0</small
+                ><br />
+                <!-- Điểm môn thứ 3 -->
+                <label for="score-3"><strong>Score of subject 3</strong></label>
+                <input type="text" name="" id="score-3" class="form-control" />
+                <small id="noti-score-3" class="text-muted"
+                  >Score must greater than or equal to 0</small
+                ><br />
+              </div>
+              <div class="form-group form-group--right">
+                <!-- Khu vực ưu tiên -->
+                <label for="prioritized-area"
+                  ><strong>Prioritized Area</strong></label
+                >
+                <select class="form-control" name="" id="prioritized-area">
+                  <option>X</option>
+                  <option>A</option>
+                  <option>B</option>
+                  <option>C</option>
+                </select>
+                <small id="noti-prioritized-area" class="text-muted"
+                  >Choose your option</small
+                ><br />
+                <!-- Đối tượng ưu tiên -->
+                <label for="prioritized-object"
+                  ><strong>Prioritized Object</strong></label
+                >
+                <select class="form-control" name="" id="prioritized-object">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                </select>
+                <small id="noti-prioritized-object" class="text-muted"
+                  >Choose your option</small
+                >
+              </div>
+            </div>
+            <div class="btn-box d-flex justify-content-center">
+              <button id="btn-submit-q1" class="btn btn-info text-capitalize">
+                Submit
+              </button>
+              <button
+                id="btn-show-steps-q1"
+                class="btn btn-warning text-capitalize"
+              >
+                Show Steps
+              </button>
+            </div>
+            <div id="result-q1" class="card-footer">Notification here 🎉</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Main JS -->
+    <script src="main.js"></script>
+  </body>
+</html>
