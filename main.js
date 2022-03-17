@@ -4,41 +4,19 @@ const cards = document.getElementsByClassName("card");
 
 for (let i = 0; i < openQBtn.length; ++i) {
   openQBtn[i].onclick = function () {
-    openQBtn[i].classList.toggle("btn-q-open--active");
-
+    openQBtn[i].classList.add("btn-q-open--active");
     cards[i].style.display = "block";
   };
 }
 
 for (let i = 0; i < closeQBtn.length; ++i) {
   closeQBtn[i].onclick = function () {
-    openQBtn[i].classList.toggle("btn-q-open--active");
+    openQBtn[i].classList.remove("btn-q-open--active");
     cards[i].style.display = "none";
   };
 }
 
 // -------------- QUESTION 1 --------------
-// Inputs
-const benchmark = document.getElementById("benchmark");
-const score1 = document.getElementById("score-1");
-const score2 = document.getElementById("score-2");
-const score3 = document.getElementById("score-3");
-const prioritizedArea = document.getElementById("prioritized-area");
-const prioritizedObject = document.getElementById("prioritized-object");
-
-// Notifications
-const benchmarchNoti = document.getElementById("noti-benchmark");
-const score1Noti = document.getElementById("noti-score-1");
-const score2Noti = document.getElementById("noti-score-2");
-const score3Noti = document.getElementById("noti-score-3");
-
-// Buttons
-const submitQ1Btn = document.getElementById("btn-submit-q1");
-const showStepsQ1Btn = document.getElementById("btn-show-steps-q1");
-
-// Output
-const q1Result = document.getElementById("result-q1");
-
 const BONUS_AREA_A = 2;
 const BONUS_AREA_B = 1;
 const BONUS_AREA_C = 0.5;
@@ -61,6 +39,27 @@ const bonusScores = {
     3: BONUS_OBJECT_3,
   },
 };
+
+// Inputs
+const benchmark = document.getElementById("benchmark");
+const score1 = document.getElementById("score-1");
+const score2 = document.getElementById("score-2");
+const score3 = document.getElementById("score-3");
+const prioritizedArea = document.getElementById("prioritized-area");
+const prioritizedObject = document.getElementById("prioritized-object");
+
+// Notifications
+const benchmarchNoti = document.getElementById("noti-benchmark");
+const score1Noti = document.getElementById("noti-score-1");
+const score2Noti = document.getElementById("noti-score-2");
+const score3Noti = document.getElementById("noti-score-3");
+
+// Buttons
+const submitQ1Btn = document.getElementById("btn-submit-q1");
+const showStepsQ1Btn = document.getElementById("btn-show-steps-q1");
+
+// Output
+const q1Result = document.getElementById("result-q1");
 
 function isInValidInput(input) {
   // Input must be a number >= 0
@@ -182,4 +181,72 @@ submitQ1Btn.onclick = function () {
   q1Result.classList.replace("alert-success", "alert-danger");
   q1Result.innerHTML = `- You've failed.<br>
                       - Your total score: ${totalScore}.`;
+};
+
+// -------------- QUESTION 2 --------------
+const FIRST_50KW = 500;
+const NEXT_50KW = 650;
+const NEXT_100KW = 850;
+const NEXT_150KW = 1100;
+const REMANING = 1300;
+
+// Inputs
+const clientName = document.getElementById("client-name");
+const consumedKilowatt = document.getElementById("kilowatt-consumed");
+
+// Notifications
+const kilowattNoti = document.getElementById("noti-kilowatt-consumed");
+
+// Buttons
+const submitQ2Btn = document.getElementById("btn-submit-q2");
+const showStepsQ2Btn = document.getElementById("btn-show-steps-q2");
+
+// Output
+const q2Result = document.getElementById("result-q2");
+
+function calcFirst50kw(kilowatt) {
+  if (0 <= kilowatt && kilowatt <= 50) return FIRST_50KW * kilowatt;
+  return 25000;
+}
+
+function calcNext50kw(kilowatt) {
+  if (51 <= kilowatt && kilowatt <= 100) return NEXT_50KW * (kilowatt - 50);
+
+  if (kilowatt > 100) return NEXT_50KW * 50;
+
+  return 0;
+}
+
+function calcNext100kw(kilowatt) {
+  if (101 <= kilowatt && kilowatt <= 200) return NEXT_100KW * (kilowatt - 100);
+
+  if (kilowatt > 200) return NEXT_50KW * 99;
+
+  return 0;
+}
+
+function calcNext150kw(kilowatt) {
+  if (201 <= kilowatt && kilowatt <= 350) return NEXT_150KW * (kilowatt - 100);
+
+  if (kilowatt > 350) return NEXT_50KW * 149;
+
+  return 0;
+}
+
+function calcRemaning(kilowatt) {
+  if (kilowatt > 350) return REMANING * (kilowatt - 350);
+
+  return 0;
+}
+
+submitQ2Btn.onclick = function () {
+  const consumedKilowattVal = +consumedKilowatt.value;
+
+  const totalMoney =
+    calcFirst50kw(consumedKilowattVal) +
+    calcNext50kw(consumedKilowattVal) +
+    calcNext100kw(consumedKilowattVal) +
+    calcNext150kw(consumedKilowattVal) +
+    calcRemaning(consumedKilowattVal);
+  q2Result.innerHTML = `${totalMoney}`;
 };

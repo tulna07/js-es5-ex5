@@ -40,6 +40,7 @@
     </div>
 
     <div class="container">
+      <!-- Question 1 -->
       <div class="row">
         <div class="col-5 mx-auto my-3">
           <div class="card">
@@ -141,6 +142,78 @@
               </button>
             </div>
             <div id="result-q1" class="card-footer">Notification here 🎉</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="row">
+        <div class="col-5 mx-auto my-3">
+          <div class="card">
+            <div
+              class="card-header text-info d-flex justify-content-between align-items-center"
+            >
+              <strong>📘 Question 2</strong>
+              <i class="btn-q-close fa-solid fa-xmark"></i>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <p class="text-info">
+                  First <strong class="text-dark">50</strong> kw:
+                  <strong class="text-dark">500</strong> d/kw
+                </p>
+                <p class="text-info">
+                  Next <strong class="text-dark">50</strong> kw:
+                  <strong class="text-dark">650</strong> d/kw
+                </p>
+                <p class="text-info">
+                  Next <strong class="text-dark">100</strong> kw:
+                  <strong class="text-dark">850</strong> d/kw
+                </p>
+                <p class="text-info">
+                  Next <strong class="text-dark">150</strong> kw:
+                  <strong class="text-dark">1100</strong> d/kw
+                </p>
+                <p class="text-info">
+                  Remaining: <strong class="text-dark">1300</strong> d/kw
+                </p>
+                <!-- Ten khach hang -->
+                <label for="client-name"><strong>Client name</strong></label>
+                <input
+                  type="text"
+                  name=""
+                  id="client-name"
+                  class="form-control"
+                  placeholder="Enter your name"
+                />
+                <!--  Kilowatt da tieu thu -->
+                <label for="kilowatt-consumed"
+                  ><strong>Kilowatt consumed</strong></label
+                >
+                <input
+                  type="text"
+                  name=""
+                  id="kilowatt-consumed"
+                  class="form-control"
+                  placeholder="Default 0"
+                />
+                <small id="noti-kilowatt-consumed" class="text-muted"
+                  >Kilowatt must greater than or equal to 0</small
+                ><br />
+              </div>
+            </div>
+            <div class="btn-box d-flex justify-content-center">
+              <button id="btn-submit-q2" class="btn btn-info text-capitalize">
+                Submit
+              </button>
+              <button
+                id="btn-show-steps-q2"
+                class="btn btn-warning text-capitalize"
+              >
+                Show Steps
+              </button>
+            </div>
+            <div id="result-q2" class="card-footer">Notification here 🎉</div>
           </div>
         </div>
       </div>
