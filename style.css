@@ -4,8 +4,32 @@
   box-sizing: border-box;
 }
 
+.btn-q-open-box {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.btn-q-open-box > .btn-q-open {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%, 0% 50%);
+
+  transition: transform 0.3s;
+}
+
+.btn-q-open--active {
+  transform: translateX(15px);
+}
+
 .card {
-  display: block;
+  display: none;
+}
+
+.card-header > .btn-q-close {
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .card-body {

@@ -17,16 +17,37 @@
       crossorigin="anonymous"
     />
 
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <!-- Main CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="btn-q-open-box d-flex flex-column">
+      <button class="btn-q-open btn btn-dark text-capitalize">
+        <strong>Question 1</strong>
+      </button>
+      <button class="btn-q-open btn btn-dark text-capitalize">
+        <strong>Question 2</strong>
+      </button>
+    </div>
+
     <div class="container">
       <div class="row">
         <div class="col-5 mx-auto my-3">
           <div class="card">
-            <div class="card-header text-info">
+            <div
+              class="card-header text-info d-flex justify-content-between align-items-center"
+            >
               <strong>📘 Question 1</strong>
+              <i class="btn-q-close fa-solid fa-xmark"></i>
             </div>
             <div class="card-body d-flex">
               <div class="form-group form-group--left">
@@ -37,25 +58,44 @@
                   name=""
                   id="benchmark"
                   class="form-control"
+                  placeholder="Default 0"
                 />
                 <small id="noti-benchmark" class="text-muted"
                   >Benchmark must greater than or equal to 0</small
                 ><br />
                 <!-- Điểm môn thứ 1 -->
                 <label for="score-1"><strong>Score of subject 1</strong></label>
-                <input type="text" name="" id="score-1" class="form-control" />
+                <input
+                  type="text"
+                  name=""
+                  id="score-1"
+                  class="form-control"
+                  placeholder="Default 0"
+                />
                 <small id="noti-score-1" class="text-muted"
                   >Score must greater than or equal to 0</small
                 ><br />
                 <!-- Điểm môn thứ 2 -->
                 <label for="score-2"><strong>Score of subject 2</strong></label>
-                <input type="text" name="" id="score-2" class="form-control" />
+                <input
+                  type="text"
+                  name=""
+                  id="score-2"
+                  class="form-control"
+                  placeholder="Default 0"
+                />
                 <small id="noti-score-2" class="text-muted"
                   >Score must greater than or equal to 0</small
                 ><br />
                 <!-- Điểm môn thứ 3 -->
                 <label for="score-3"><strong>Score of subject 3</strong></label>
-                <input type="text" name="" id="score-3" class="form-control" />
+                <input
+                  type="text"
+                  name=""
+                  id="score-3"
+                  class="form-control"
+                  placeholder="Default 0"
+                />
                 <small id="noti-score-3" class="text-muted"
                   >Score must greater than or equal to 0</small
                 ><br />
@@ -66,10 +106,10 @@
                   ><strong>Prioritized Area</strong></label
                 >
                 <select class="form-control" name="" id="prioritized-area">
-                  <option>X</option>
-                  <option>A</option>
-                  <option>B</option>
-                  <option>C</option>
+                  <option>X: +0</option>
+                  <option>A: +2</option>
+                  <option>B: +1</option>
+                  <option>C: +0.5</option>
                 </select>
                 <small id="noti-prioritized-area" class="text-muted"
                   >Choose your option</small
@@ -79,10 +119,10 @@
                   ><strong>Prioritized Object</strong></label
                 >
                 <select class="form-control" name="" id="prioritized-object">
-                  <option>0</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
+                  <option>0: +0</option>
+                  <option>1: +2.5</option>
+                  <option>2: +1.5</option>
+                  <option>3: +1</option>
                 </select>
                 <small id="noti-prioritized-object" class="text-muted"
                   >Choose your option</small

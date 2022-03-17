@@ -1,3 +1,23 @@
+const closeQBtn = document.getElementsByClassName("btn-q-close");
+const openQBtn = document.getElementsByClassName("btn-q-open");
+const cards = document.getElementsByClassName("card");
+
+for (let i = 0; i < openQBtn.length; ++i) {
+  openQBtn[i].onclick = function () {
+    openQBtn[i].classList.toggle("btn-q-open--active");
+
+    cards[i].style.display = "block";
+  };
+}
+
+for (let i = 0; i < closeQBtn.length; ++i) {
+  closeQBtn[i].onclick = function () {
+    openQBtn[i].classList.toggle("btn-q-open--active");
+    cards[i].style.display = "none";
+  };
+}
+
+// -------------- QUESTION 1 --------------
 // Inputs
 const benchmark = document.getElementById("benchmark");
 const score1 = document.getElementById("score-1");
@@ -29,11 +49,13 @@ const BONUS_OBJECT_3 = 1;
 
 const bonusScores = {
   area: {
+    X: 0,
     A: BONUS_AREA_A,
     B: BONUS_AREA_B,
     C: BONUS_AREA_C,
   },
   object: {
+    0: 0,
     1: BONUS_OBJECT_1,
     2: BONUS_OBJECT_2,
     3: BONUS_OBJECT_3,
@@ -48,8 +70,6 @@ function isInValidInput(input) {
 }
 
 function isPass(benchmark, studentScores, prioritizedArea, prioritizedObject) {
-  // if (!benchmark || !subjects.length) return false;
-
   const totalScore = calcTotalScore(
     studentScores,
     prioritizedArea,
@@ -140,26 +160,26 @@ submitQ1Btn.onclick = function () {
 
   const totalScore = calcTotalScore(
     studentScores,
-    prioritizedAreaVal,
-    prioritizedObjectVal
+    prioritizedAreaVal[0],
+    prioritizedObjectVal[0]
   );
   if (
     isPass(
       benchmarkVal,
       studentScores,
-      prioritizedAreaVal,
-      prioritizedObjectVal
+      prioritizedAreaVal[0],
+      prioritizedObjectVal[0]
     )
   ) {
     q1Result.classList.add("alert-success");
     q1Result.classList.replace("alert-danger", "alert-success");
-    q1Result.innerHTML = `- Congratulations! You've passed.<br>
-                          - Your total score: ${totalScore}`;
+    q1Result.innerHTML = `- ✨Congratulations! You've passed.<br>
+                          - Your total score: ${totalScore}.`;
     return;
   }
 
   q1Result.classList.add("alert-danger");
   q1Result.classList.replace("alert-success", "alert-danger");
   q1Result.innerHTML = `- You've failed.<br>
-                      - Your total score: ${totalScore}`;
+                      - Your total score: ${totalScore}.`;
 };
