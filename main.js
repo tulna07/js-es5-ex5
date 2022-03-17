@@ -16,6 +16,27 @@ for (let i = 0; i < closeQBtn.length; ++i) {
   };
 }
 
+function isInValidInput(input) {
+  // Input must be a number >= 0
+  if (Number.isNaN(input) || input < 0) return true;
+
+  return false;
+}
+
+const stepsBox = document.getElementsByClassName("steps-box");
+const closeStepsBoxBtn = document.getElementsByClassName("btn-close-steps-box");
+const showStepsBoxBtn = document.getElementsByClassName("btn-show-steps-box");
+
+for (let i = 0; i < showStepsBoxBtn.length; ++i) {
+  showStepsBoxBtn[i].onclick = function () {
+    stepsBox[i].style.display = "block";
+  };
+
+  closeStepsBoxBtn[i].onclick = function () {
+    stepsBox[i].style.display = "none";
+  };
+}
+
 // -------------- QUESTION 1 --------------
 const BONUS_AREA_A = 2;
 const BONUS_AREA_B = 1;
@@ -56,17 +77,9 @@ const score3Noti = document.getElementById("noti-score-3");
 
 // Buttons
 const submitQ1Btn = document.getElementById("btn-submit-q1");
-const showStepsQ1Btn = document.getElementById("btn-show-steps-q1");
 
 // Output
 const q1Result = document.getElementById("result-q1");
-
-function isInValidInput(input) {
-  // Input must be a number >= 0
-  if (!Number.isNaN(input) || input < 0) return false;
-
-  return true;
-}
 
 function isPass(benchmark, studentScores, prioritizedArea, prioritizedObject) {
   const totalScore = calcTotalScore(
@@ -220,7 +233,7 @@ function calcNext50kw(kilowatt) {
 function calcNext100kw(kilowatt) {
   if (101 <= kilowatt && kilowatt <= 200) return NEXT_100KW * (kilowatt - 100);
 
-  if (kilowatt > 200) return NEXT_50KW * 99;
+  if (kilowatt > 200) return NEXT_50KW * 100;
 
   return 0;
 }
@@ -228,7 +241,7 @@ function calcNext100kw(kilowatt) {
 function calcNext150kw(kilowatt) {
   if (201 <= kilowatt && kilowatt <= 350) return NEXT_150KW * (kilowatt - 100);
 
-  if (kilowatt > 350) return NEXT_50KW * 149;
+  if (kilowatt > 350) return NEXT_50KW * 150;
 
   return 0;
 }
@@ -241,6 +254,14 @@ function calcRemaning(kilowatt) {
 
 submitQ2Btn.onclick = function () {
   const consumedKilowattVal = +consumedKilowatt.value;
+
+  if (isInValidInput(consumedKilowattVal)) {
+    kilowattNoti.classList.replace("text-muted", "text-danger");
+    q2Result.classList.add("alert-danger");
+    q2Result.classList.replace("alert-success", "alert-danger");
+    q2Result.innerHTML = "Invalid input(s) ❗";
+    return;
+  }
 
   const totalMoney =
     calcFirst50kw(consumedKilowattVal) +

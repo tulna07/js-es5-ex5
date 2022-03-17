@@ -44,6 +44,26 @@
       <div class="row">
         <div class="col-5 mx-auto my-3">
           <div class="card">
+            <div class="steps-box position-absolute">
+              <i
+                class="btn-close-steps-box fa-solid fa-xmark position-absolute"
+              ></i>
+              <strong>Input</strong>: Nhập vào điểm chuẩn của hội đồng, điểm 3
+              môn thi của thí sinh, khu vực ưu tiên, đối tượng ưu tiên.<br />
+              <strong>Bước 1:</strong> Thiết kế giao diện, cho người dùng nhập
+              vào điểm chuẩn, điểm từng môn học vào các ô inputs và chọn khu vực
+              ưu tiên, đối tượng ưu tiên tương ứng.<br />
+              <strong>Bước 2:</strong> Kiểm tra xem các inputs nhập vào có hợp
+              lệ hay không (là số >= 0 thì hợp lệ), nếu không thì in ra thông
+              báo.<br />
+              <strong>Bước 3:</strong> Nếu inputs hợp lệ, kiểm tra xem có đủ
+              điều kiện trúng tuyển hay không bằng các conditional statements,
+              nếu không đủ điều kiện trúng tuyển in ra thông báo rớt tuyển.<br />
+              <strong>Bước 4:</strong> Nếu đủ điều kiện thì in ra thông báo chúc
+              mừng trúng tuyển.<br />
+              <strong>Output</strong>: Cho biết thí sinh đó đậu hay rớt và tổng
+              điểm đạt được.<br />
+            </div>
             <div
               class="card-header text-info d-flex justify-content-between align-items-center"
             >
@@ -135,8 +155,7 @@
                 Submit
               </button>
               <button
-                id="btn-show-steps-q1"
-                class="btn btn-warning text-capitalize"
+                class="btn-show-steps-box btn btn-warning text-capitalize"
               >
                 Show Steps
               </button>
@@ -150,6 +169,19 @@
       <div class="row">
         <div class="col-5 mx-auto my-3">
           <div class="card">
+            <div class="steps-box position-absolute">
+              <i
+                class="btn-close-steps-box fa-solid fa-xmark position-absolute"
+              ></i
+              >Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Accusamus aperiam animi fugiat officiis. Repellat explicabo
+              reiciendis repudiandae atque inventore quis at ut eum. Totam,
+              ducimus sed optio velit labore nisi. Lorem, ipsum dolor sit amet
+              consectetur adipisicing elit. Veritatis optio incidunt fugiat
+              saepe vero facilis architecto voluptatem provident, placeat
+              explicabo beatae delectus unde nobis? Quibusdam ad reiciendis
+              minima obcaecati natus?
+            </div>
             <div
               class="card-header text-info d-flex justify-content-between align-items-center"
             >
@@ -207,8 +239,7 @@
                 Submit
               </button>
               <button
-                id="btn-show-steps-q2"
-                class="btn btn-warning text-capitalize"
+                class="btn-show-steps-box btn btn-warning text-capitalize"
               >
                 Show Steps
               </button>
