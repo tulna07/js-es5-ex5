@@ -6,9 +6,9 @@
 
 .btn-q-open-box {
   position: fixed;
-  top: 50%;
+  top: 10%;
   left: 0;
-  transform: translateY(-50%);
+  /* transform: translateY(-50%); */
 }
 
 .btn-q-open-box > .btn-q-open {
@@ -83,6 +83,7 @@ small {
 
 td,
 th {
+  white-space: nowrap;
   border: 1px solid #dddddd;
   text-align: center;
   padding: 8px;

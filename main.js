@@ -266,7 +266,7 @@ function printBill(consumedKilowatt) {
   q2Result.innerHTML = `${totalMoney}`;
   nameResult.innerHTML = clientName.value;
   consumedKilowattResult.innerHTML = consumedKilowatt;
-  totalResult.innerHTML = vndFormatting(totalMoney) + " VND";
+  totalResult.innerHTML = `<strong>${vndFormatting(totalMoney)} VND</strong>`;
 }
 
 function calcRemaning(kilowatt) {
