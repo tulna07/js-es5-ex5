@@ -71,3 +71,19 @@ small {
   font-size: 20px;
   cursor: pointer;
 }
+
+#bill {
+  display: none;
+
+  position: absolute;
+  top: 50%;
+  right: 105%;
+  transform: translateY(-50%);
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}

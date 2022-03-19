@@ -216,10 +216,16 @@ const showStepsQ2Btn = document.getElementById("btn-show-steps-q2");
 
 // Output
 const q2Result = document.getElementById("result-q2");
+const nameResult = document.getElementById("result-name");
+const consumedKilowattResult = document.getElementById(
+  "result-consumed-kilowatt"
+);
+const totalResult = document.getElementById("result-total");
+const bill = document.getElementById("bill");
 
 function calcFirst50kw(kilowatt) {
   if (0 <= kilowatt && kilowatt <= 50) return FIRST_50KW * kilowatt;
-  return 25000;
+  return FIRST_50KW * 50;
 }
 
 function calcNext50kw(kilowatt) {
@@ -233,15 +239,15 @@ function calcNext50kw(kilowatt) {
 function calcNext100kw(kilowatt) {
   if (101 <= kilowatt && kilowatt <= 200) return NEXT_100KW * (kilowatt - 100);
 
-  if (kilowatt > 200) return NEXT_50KW * 100;
+  if (kilowatt > 200) return NEXT_100KW * 100;
 
   return 0;
 }
 
 function calcNext150kw(kilowatt) {
-  if (201 <= kilowatt && kilowatt <= 350) return NEXT_150KW * (kilowatt - 100);
+  if (201 <= kilowatt && kilowatt <= 350) return NEXT_150KW * (kilowatt - 200);
 
-  if (kilowatt > 350) return NEXT_50KW * 150;
+  if (kilowatt > 350) return NEXT_150KW * 150;
 
   return 0;
 }
@@ -252,10 +258,21 @@ function calcRemaning(kilowatt) {
   return 0;
 }
 
+function caclcTotal(consumedKilowatt) {
+  return (
+    calcFirst50kw(consumedKilowatt) +
+    calcNext50kw(consumedKilowatt) +
+    calcNext100kw(consumedKilowatt) +
+    calcNext150kw(consumedKilowatt) +
+    calcRemaning(consumedKilowatt)
+  );
+}
+
 submitQ2Btn.onclick = function () {
   const consumedKilowattVal = +consumedKilowatt.value;
 
   if (isInValidInput(consumedKilowattVal)) {
+    bill.style.display = "none";
     kilowattNoti.classList.replace("text-muted", "text-danger");
     q2Result.classList.add("alert-danger");
     q2Result.classList.replace("alert-success", "alert-danger");
@@ -263,11 +280,15 @@ submitQ2Btn.onclick = function () {
     return;
   }
 
-  const totalMoney =
-    calcFirst50kw(consumedKilowattVal) +
-    calcNext50kw(consumedKilowattVal) +
-    calcNext100kw(consumedKilowattVal) +
-    calcNext150kw(consumedKilowattVal) +
-    calcRemaning(consumedKilowattVal);
+  bill.style.display = "block";
+  q2Result.classList.add("alert-success");
+  q2Result.classList.replace("alert-danger", "alert-success");
+  kilowattNoti.classList.add("text-muted");
+
+  const totalMoney = caclcTotal(consumedKilowattVal);
+
   q2Result.innerHTML = `${totalMoney}`;
+  nameResult.innerHTML = clientName.value;
+  consumedKilowattResult.innerHTML = consumedKilowattVal;
+  totalResult.innerHTML = totalMoney;
 };

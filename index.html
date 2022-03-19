@@ -55,14 +55,14 @@
               ưu tiên, đối tượng ưu tiên tương ứng.<br />
               <strong>Bước 2:</strong> Kiểm tra xem các inputs nhập vào có hợp
               lệ hay không (là số >= 0 thì hợp lệ), nếu không thì in ra thông
-              báo.<br />
+              báo không hợp lệ.<br />
               <strong>Bước 3:</strong> Nếu inputs hợp lệ, kiểm tra xem có đủ
               điều kiện trúng tuyển hay không bằng các conditional statements,
               nếu không đủ điều kiện trúng tuyển in ra thông báo rớt tuyển.<br />
               <strong>Bước 4:</strong> Nếu đủ điều kiện thì in ra thông báo chúc
               mừng trúng tuyển.<br />
               <strong>Output</strong>: Cho biết thí sinh đó đậu hay rớt và tổng
-              điểm đạt được.<br />
+              điểm đạt được.
             </div>
             <div
               class="card-header text-info d-flex justify-content-between align-items-center"
@@ -173,14 +173,23 @@
               <i
                 class="btn-close-steps-box fa-solid fa-xmark position-absolute"
               ></i
-              >Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Accusamus aperiam animi fugiat officiis. Repellat explicabo
-              reiciendis repudiandae atque inventore quis at ut eum. Totam,
-              ducimus sed optio velit labore nisi. Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Veritatis optio incidunt fugiat
-              saepe vero facilis architecto voluptatem provident, placeat
-              explicabo beatae delectus unde nobis? Quibusdam ad reiciendis
-              minima obcaecati natus?
+              ><strong>Input</strong>: Nhập vào thông tin tiêu thụ điện (tên
+              người dùng, số kilowatt đã tiêu thụ).<br />
+              <strong>Bước 1:</strong> Thiết kế giao diện, để đầy dủ thông tin
+              bảng giá tiêu thụ điện, cho người dùng nhập vào tên, số kilowatt
+              đã tiêu thụ.<br />
+              <strong>Bước 2:</strong> Kiểm tra xem các số kilowat tiêu thụ nhập
+              vào có hợp lệ hay không (là số >= 0 thì hợp lệ), nếu không thì in
+              ra thông báo không hợp lệ.<br />
+              <strong>Bước 3:</strong> Nếu số kilowat tiêu thụ hợp lệ, tính tổng
+              số tiền điện cần phải trả cho số kilowat đã tiêu thụ dựa trên bảng
+              giá bằng các hàm nhỏ và câu điều kiện.<br />
+              <strong>Bước 4:</strong> In ra một bảng thanh toán gồm tên khách
+              hàng, số kilowatt đã tiêu thụ và số tiền cần thanh toán ra giao
+              diện.<br />
+              <strong>Output</strong>: In ra một bảng thanh toán gồm tên khách
+              hàng, số kilowatt đã tiêu thụ và số tiền cần thanh toán ra giao
+              diện.
             </div>
             <div
               class="card-header text-info d-flex justify-content-between align-items-center"
@@ -245,6 +254,28 @@
               </button>
             </div>
             <div id="result-q2" class="card-footer">Notification here 🎉</div>
+            <table id="bill" class="bg-info">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>👩🏻 Name</td>
+                  <td id="result-name">.......</td>
+                </tr>
+                <tr>
+                  <td>🎇 Consumed Kilowatt</td>
+                  <td id="result-consumed-kilowatt">.......</td>
+                </tr>
+                <tr>
+                  <td>💵 Total</td>
+                  <td id="result-total">.......</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
