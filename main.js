@@ -203,6 +203,9 @@ const NEXT_100KW = 850;
 const NEXT_150KW = 1100;
 const REMANING = 1300;
 
+// Money formatting
+const vndFormatting = new Intl.NumberFormat("vn-VN").format;
+
 // Inputs
 const clientName = document.getElementById("client-name");
 const consumedKilowatt = document.getElementById("kilowatt-consumed");
@@ -252,6 +255,20 @@ function calcNext150kw(kilowatt) {
   return 0;
 }
 
+function printBill(consumedKilowatt) {
+  bill.style.display = "block";
+  q2Result.classList.add("alert-success");
+  q2Result.classList.replace("alert-danger", "alert-success");
+  kilowattNoti.classList.add("text-muted");
+
+  const totalMoney = caclcTotal(consumedKilowatt);
+
+  q2Result.innerHTML = `${totalMoney}`;
+  nameResult.innerHTML = clientName.value;
+  consumedKilowattResult.innerHTML = consumedKilowatt;
+  totalResult.innerHTML = vndFormatting(totalMoney) + " VND";
+}
+
 function calcRemaning(kilowatt) {
   if (kilowatt > 350) return REMANING * (kilowatt - 350);
 
@@ -280,15 +297,5 @@ submitQ2Btn.onclick = function () {
     return;
   }
 
-  bill.style.display = "block";
-  q2Result.classList.add("alert-success");
-  q2Result.classList.replace("alert-danger", "alert-success");
-  kilowattNoti.classList.add("text-muted");
-
-  const totalMoney = caclcTotal(consumedKilowattVal);
-
-  q2Result.innerHTML = `${totalMoney}`;
-  nameResult.innerHTML = clientName.value;
-  consumedKilowattResult.innerHTML = consumedKilowattVal;
-  totalResult.innerHTML = totalMoney;
+  printBill(consumedKilowattVal);
 };
